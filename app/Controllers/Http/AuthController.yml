@@ -1,0 +1,85 @@
+/register:
+  post:
+    description: Melakukan pendaftaran user baru.
+    tags:
+      - Auth
+    requestBody:
+      description: Data user baru
+      content:
+        application/json:
+          schema:
+              required:
+              - name
+              - email
+              - password
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: irpannawawi
+                email:
+                  type: string
+                  example: irpannawawi.ixd@gmail.com
+                password:
+                  type: string
+                  example: nawawi123
+                role:
+                  type: string
+                  example: user
+
+    responses:
+      200:
+        description: Send hello message
+        example:
+          message: Email irpannawawi@gmail.com registered, we have sent you a message in email with the OTP code. please verify your account to complete the registration
+
+/login:
+  post:
+    description: Melakukan login dengan memasukkan email dan password
+    tags:
+      - Auth
+    requestBody:
+      content:
+        application/json:
+          schema:
+            required:
+              - email
+              - password
+            type: object
+            properties:
+              email:
+                type: string
+                example: irpannawawi.ixd@gmail.com
+              password:
+                type: string
+                example: nawawi123 
+    responses:
+      200:
+        description: Berhasil login
+
+/otp-confirmation:
+  post:
+    description: Melakukan verifikasi OTP user baru.
+    tags:
+      - Auth
+    requestBody:
+      description: Data user baru
+      content:
+        application/json:
+          schema:
+              required:
+              - email
+              - otp
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: irpannawawi.ixd@gmail.com
+                otp:
+                  type: number
+                  example: <otp_code>
+    responses:
+      200:
+        description: Otp verified
+      400:
+        description: Error

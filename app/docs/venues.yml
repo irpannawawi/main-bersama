@@ -1,0 +1,137 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Based on "Basic Auth Example"
+  description: >
+    An example for how to use Auth with Swagger.
+
+host: basic-auth-server.herokuapp.com
+
+paths:
+  /venues:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - Venues
+      responses:
+        '200':
+          description: 'Will send `Venues`'
+        '401': 
+          description: 'You do not have necessary permissions for the resource'
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - Venues
+      requestBody:
+        description: Data venue baru yang akan ditambahkan
+        content:
+          application/json:
+            schema:
+              required:
+              - name
+              - address
+              - phone
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Gelora Bung Karno
+                address:
+                  type: string
+                  example: Jl. Sesama No. 5 - Suka Hati Kecamatan Sirnasari, Tanjung Harapan
+                phone:
+                  type: string
+                  example: "+6285123456789"
+      responses:
+        '200':
+          description: 'Berhasil membuat venue'
+        '401': 
+          description: 'You do not have necessary permissions for the resource'
+  /venues/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - Venues
+      parameters:
+        - in: path
+          name: id
+          type: number
+          example: 1
+      responses:
+        '200':
+          description: 'Will send `Venues`'
+        '401': 
+          description: 'You do not have necessary permissions for the resource'
+    put:
+      tags:
+        - Venues
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          type: number
+          example: 6
+          description: id venue yang akan di edit
+      requestBody:
+        description: Data venue yang akan diedit
+        content: 
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Gelora Bung Karno"
+                  description: opsional
+                address:
+                  type: string
+                  example: "Jl. Sesama No 2"
+                phone:
+                  type: string
+                  example: "+6285123456543"
+      responses:
+        200:
+          description: venue berhasil di edit
+        400: 
+          description: error
+  /venues/{id}/bookings:
+    post:
+      tags:
+        - Venues
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          type: number
+          example: 1
+          description: id field yang akan di booking
+      requestBody:
+        description: Data tanggal booking venue
+        content:
+          application/json:
+            schema:
+              required:
+              - play_date_start
+              type: object
+              properties:
+                play_date_start:
+                  type: datetime
+                  example: "2021-05-17 09:00:00"
+                play_date_end:
+                  type: datetime
+                  example: "2021-05-17 11:00:00"
+      responses:
+        200:
+          description: 'venue berhasil di booking'
+
+
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer

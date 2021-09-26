@@ -1,0 +1,16 @@
+PORT=3333
+HOST=0.0.0.0
+NODE_ENV=development
+APP_KEY=l2hRmteq7czQN-IiyKZz1QX2-JfJ-oe6
+DRIVE_DISK=local
+DB_CONNECTION=mysql
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=l
+MYSQL_DB_NAME=main_bersama
+CACHE_VIEWS=false
+SMTP_HOST=newpinwheel.indowebsite.net
+SMTP_PORT=465
+SMTP_USERNAME=irpan@nawawisoft.xyz
+SMTP_PASSWORD=Ki5r019l6Jts
