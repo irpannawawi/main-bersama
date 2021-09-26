@@ -9,7 +9,7 @@
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    // "build": "node ace build --prod --ignore-ts-errors",
+    "build": "node ace build --prod --ignore-ts-errors",
     "start": "node ace serve --watch",
     "start:prod": "node ./build/server.js"
   },
