@@ -14,10 +14,7 @@ export default {
 			info: {
 				title: 'Application with swagger docs',
 				version: '1.0.0',
-				description: 'My application with swagger docs',
-				servers: {
-					"url": "http://localhost:3333/"
-				}
+				description: 'My application with swagger docs'
 			}
 		},
 
