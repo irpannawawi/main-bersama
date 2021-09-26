@@ -9,8 +9,7 @@
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "build": "node ace build --prod --ignore-ts-errors",
-    "postBuild": "node ace swagger:generate && cp docs/* ./build/docs/",
+    "build": "node ace build --prod --ignore-ts-errors && node ace swagger:generate && cp docs/* ./build/docs/",
     "start": "node ace serve --watch",
     "start:prod": "node ./build/server.js"
   },
