@@ -10,7 +10,7 @@
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
     "build": "node ace build --prod --ignore-ts-errors",
-    "postbuild": "node ace swagger:generate && cp -a docs/ build/docs",
+    "postbuild": "cp -a docs/ build/docs",
     "start": "node ace serve --watch",
     "start:prod": "node ./build/server.js"
   },
