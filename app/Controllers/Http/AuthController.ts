@@ -4,21 +4,7 @@ import user from 'App/Models/user'
 import Otp from 'App/Models/Otp'
 import Mail from '@ioc:Adonis/Addons/Mail'
 var otpGenerator = require('otp-generator')
-/**
-* @swagger
-* /register/{id}
-* 	get:
-* 		tags:
-* 			- auth
-* 		parameters:
-* 			- in: path
-* 				name: id
-* 				type: number
-* 				example: 1
-*		responses:
-* 			200:
-* 				description: oke 
-*/
+
 export default class AuthController {
 	public async register({request, response}: HttpContextContract){
 

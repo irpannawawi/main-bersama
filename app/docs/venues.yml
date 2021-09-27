@@ -10,6 +10,9 @@ host: basic-auth-server.herokuapp.com
 paths:
   /venues:
     get:
+      summary: Menampilkan list venue semuanya
+      description: >
+        Endpoint ini digunakan untuk mendapatkan list seluruh venue.
       security:
         - bearerAuth: []
       tags:
@@ -20,6 +23,9 @@ paths:
         '401': 
           description: 'You do not have necessary permissions for the resource'
     post:
+      summary: Menambah venue
+      description: >
+        Endpoint ini digunakan untuk menambahkan venue baru, harus oleh owner.
       security:
         - bearerAuth: []
       tags:
@@ -51,6 +57,9 @@ paths:
           description: 'You do not have necessary permissions for the resource'
   /venues/{id}:
     get:
+      summary: Menampilkan venue tertentu
+      description: >
+        Endpoint ini digunakan untuk mendapatkan detail venue tertentu.
       security:
         - bearerAuth: []
       tags:
@@ -66,6 +75,9 @@ paths:
         '401': 
           description: 'You do not have necessary permissions for the resource'
     put:
+      summary: Edit venue
+      description: >
+        Endpoint ini digunakan untuk merubah data venue tertentu.
       tags:
         - Venues
       security:
@@ -100,6 +112,9 @@ paths:
           description: error
   /venues/{id}/bookings:
     post:
+      summary: Melakukan booking
+      description: >
+        Endpoint ini digunakan untuk melakukan pemesanan tempat olahraga.
       tags:
         - Venues
       security:

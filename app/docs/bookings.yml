@@ -91,6 +91,9 @@ paths:
 
   /schedules:
     get:
+      summary: Menampilkan list schedules
+      description: >
+        Endpoint ini digunakan untuk mendapatkan list schedules user yang sedang login.
       tags: 
         - Bookings
       security:
